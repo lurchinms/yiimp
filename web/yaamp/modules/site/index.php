@@ -51,7 +51,7 @@ $payout_freq = (YAAMP_PAYMENTS_FREQ / 3600) . " hours";
 <!-- Stratum Auto generation code, will automatically add coins when they are enabled and auto ready -->
 
 <div class="main-left-box">
-<div class="main-left-title">How to mine with domain</div>
+<div class="main-left-title">How to mine</div>
 <div class="main-left-inner">
 
 <table>
@@ -67,7 +67,7 @@ $payout_freq = (YAAMP_PAYMENTS_FREQ / 3600) . " hours";
 <tbody>
 	<tr>
 		<td>
-			<select id="drop-stratum" colspan="2" style="min-width: 140px; border-style:solid; padding: 3px; font-family: monospace; border-radius: 5px;">
+			<select id="drop-stratum" colspan="2" style="min-width: 140px; border-style:solid; padding: 3px; border-radius: 5px;">
 
 <!-- Add your stratum locations here -->
 			<option value="stratum.">US East</option>
@@ -79,7 +79,7 @@ $payout_freq = (YAAMP_PAYMENTS_FREQ / 3600) . " hours";
 	</td>
 
 	<td>
-			<select id="drop-coin" style="border-style:solid; padding: 3px; font-family: monospace; border-radius: 5px;">
+			<select id="drop-coin" style="border-style:solid; padding: 3px; border-radius: 5px;">
         <?php
         $list = getdbolist('db_coins', "enable and visible and auto_ready order by algo asc");
 
@@ -116,27 +116,31 @@ $payout_freq = (YAAMP_PAYMENTS_FREQ / 3600) . " hours";
 		<td>
 
 <!-- Change your demo wallet here -->
-			<input id="text-wallet" type="text" size="44" placeholder="RF9D1R3Vt7CECzvb1SawieUC9cYmAY1qoj" style="border-style:solid; border-width: thin; padding: 3px; font-family: monospace; border-radius: 5px;">
+			<input id="text-wallet" type="text" size="44" placeholder="RF9D1R3Vt7CECzvb1SawieUC9cYmAY1qoj" style="border-style:solid; border-width: thin; padding: 3px; border-radius: 5px;">
 		</td>
 
 		<td>
-			<input id="text-rig-name" type="text" size="10" placeholder="001" style="border-style:solid; border-width: thin; padding: 3px; font-family: monospace; border-radius: 5px;">
+			<input id="text-rig-name" type="text" size="10" placeholder="001" style="border-style:solid; border-width: thin; padding: 3px;border-radius: 5px;">
 		</td>
 
 		<td>
-			<input id="Generate!" type="button" value="Start Mining" onclick="generate()" style="border-style:solid; padding: 3px; font-family: monospace; border-radius: 5px;">
+			<input id="Generate!" type="button" value="Start Mining" onclick="generate()" style="border-style:solid; padding: 3px; border-radius: 5px;">
 		</td>
 	</tr>
 	<tr>
-			<td colspan="5"><p class="main-left-box" style="padding: 3px; background-color: #ffffee; font-family: monospace;" id="output">-a  -o stratum+tcp://stratum.domain:0000 -u . -p c=</p>
+			<td colspan="5"><p class="main-left-box" style="padding: 3px; background-color: #ffffee;" id="output">-a  -o stratum+tcp://stratum.domain:0000 -u . -p c=</p>
 		</td>
 	</tr>
 </tbody></table>
 
 <ul>
-<li>&lt;WALLET_ADDRESS&gt; must be valid for the currency you mine. <b>DO NOT USE a BTC address here, the auto exchange is disabled on these stratums</b>!</li>
-<!-- <li><b>Our stratums are now NiceHASH compatible and ASICBoost enabled, please message support if you have any issues.</b></li> -->
-<li>See the "domain coins" area on the right for PORT numbers. You may mine any coin regardless if the coin is enabled or not for autoexchange. Payouts will only be made in that coins currency.</li>
+<?php if (YAAMP_ALLOW_EXCHANGE): ?>
+<li>Your &lt;WALLET_ADDRESS&gt; can be one of any currency we mine or a BTC address.</li>
+<?php else: ?>
+<li>Your &lt;WALLET_ADDRESS&gt; should be valid for the currency you mine and should be the wallet address for the deposit of your earnings.</li>
+<?php endif; ?>
+<li>The optional password above, should be used <b>-p c=&lt;SYMBOL&gt;</b> if the poool does not set the currency correctly on the Wallet page.</li>
+<li>See the "Pool Status" area on the right for PORT numbers. Algorithms without associated coins are disabled.</li>
 <li>Payouts are made automatically every hour for all balances above <b><?=$min_payout
 ?></b>, or <b><?=$min_sunday
 ?></b> on Sunday.</li>
@@ -145,6 +149,7 @@ $payout_freq = (YAAMP_PAYMENTS_FREQ / 3600) . " hours";
 </div></div><br>
 
 <!-- End new stratum generation code  -->
+
 
 <div class="main-left-box">
 <div class="main-left-title">domain Links</div>
