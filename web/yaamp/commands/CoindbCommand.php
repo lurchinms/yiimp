@@ -42,7 +42,7 @@ class CoindbCommand extends CConsoleCommand
         elseif ($args[0] == 'labels')
         {
 
-            $nbUpdated = $this->updateCryptopiaLabels();
+          // $nbUpdated = $this->updateCryptopiaLabels();		Modified KriptoKyng 04_21_2020
             $nbUpdated += $this->updateCoinCapLabels();
             $nbUpdated += $this->updateLiveCoinLabels();
             $nbUpdated += $this->updateYiimpLabels("api.yiimp.eu");
@@ -56,7 +56,7 @@ class CoindbCommand extends CConsoleCommand
         {
 
             $nbUpdated = $this->grabCcexIcons();
-            $nbUpdated += $this->grabCryptopiaIcons();
+          //$nbUpdated += $this->grabCryptopiaIcons();		Modified KriptoKyng 04_21_2020
             $nbUpdated += $this->grabBittrexIcons(); // can be huge ones
             $nbUpdated += $this->grabCoinExchangeIcons();
             $nbUpdated += $this->grabAlcurexIcons();
