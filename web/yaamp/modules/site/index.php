@@ -67,7 +67,7 @@ $payout_freq = (YAAMP_PAYMENTS_FREQ / 3600) . " hours";
 <tbody>
 	<tr>
 		<td>
-			<select id="drop-stratum" colspan="2" style="min-width: 140px; border-style:solid; padding: 3px; font-family: monospace; border-radius: 5px;">
+			<select id="drop-stratum" colspan="2" style="min-width: 140px; border-style:solid; padding: 3px border-radius: 5px;">
 
 <!-- Add your stratum locations here -->
 			<option value="stratum.">US East</option>
@@ -79,7 +79,7 @@ $payout_freq = (YAAMP_PAYMENTS_FREQ / 3600) . " hours";
 	</td>
 
 	<td>
-			<select id="drop-coin" style="border-style:solid; padding: 3px; font-family: monospace; border-radius: 5px;">
+			<select id="drop-coin" style="border-style:solid; padding: 3px border-radius: 5px;">
         <?php
         $list = getdbolist('db_coins', "enable and visible and auto_ready order by algo asc");
 
@@ -116,19 +116,19 @@ $payout_freq = (YAAMP_PAYMENTS_FREQ / 3600) . " hours";
 		<td>
 
 <!-- Change your demo wallet here -->
-			<input id="text-wallet" type="text" size="44" placeholder="RF9D1R3Vt7CECzvb1SawieUC9cYmAY1qoj" style="border-style:solid; border-width: thin; padding: 3px; font-family: monospace; border-radius: 5px;">
+			<input id="text-wallet" type="text" size="44" placeholder="RF9D1R3Vt7CECzvb1SawieUC9cYmAY1qoj" style="border-style:solid; border-width: thin; padding: 3px; border-radius: 5px;">
 		</td>
 
 		<td>
-			<input id="text-rig-name" type="text" size="10" placeholder="001" style="border-style:solid; border-width: thin; padding: 3px; font-family: monospace; border-radius: 5px;">
+			<input id="text-rig-name" type="text" size="10" placeholder="001" style="border-style:solid; border-width: thin; padding: 3px; border-radius: 5px;">
 		</td>
 
 		<td>
-			<input id="Generate!" type="button" value="Start Mining" onclick="generate()" style="border-style:solid; padding: 3px; font-family: monospace; border-radius: 5px;">
+			<input id="Generate!" type="button" value="Start Mining" onclick="generate()" style="border-style:solid; padding: 3px; border-radius: 5px;">
 		</td>
 	</tr>
 	<tr>
-			<td colspan="5"><p class="main-left-box" style="padding: 3px; background-color: #ffffee; font-family: monospace;" id="output">-a  -o stratum+tcp://stratum.domain:0000 -u . -p c=</p>
+			<td colspan="5"><p class="main-left-box" style="padding: 3px; background-color: #ffffee;" id="output">-a  -o stratum+tcp://stratum.domain:0000 -u . -p c=</p>
 		</td>
 	</tr>
 </tbody></table>
