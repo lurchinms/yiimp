@@ -33,7 +33,7 @@ require_once("empoex.php");
 require_once("jubi.php");
 require_once("alcurex.php");
 require_once("binance.php");
-require_once("cryptopia.php");
+//require_once("cryptopia.php");
 require_once("hitbtc.php");
 require_once("kucoin.php");
 require_once("livecoin.php");
