@@ -10,7 +10,7 @@ require_once('alcurex_trading.php');
 require_once('coinsmarkets_trading.php');
 require_once('crex24_trading.php');
 require_once('cryptobridge_trading.php');
-require_once('cryptopia_trading.php');
+//require_once('cryptopia_trading.php');
 require_once('hitbtc_trading.php');
 require_once('kucoin_trading.php');
 require_once('livecoin_trading.php');
@@ -40,9 +40,9 @@ function cancelExchangeOrder($order=false)
 			case 'crex24':
 				doCrex24CancelOrder($order->uuid);
 				break;
-			case 'cryptopia':
-				doCryptopiaCancelOrder($order->uuid);
-				break;
+			//case 'cryptopia':
+				//doCryptopiaCancelOrder($order->uuid);
+				//break;
 			case 'hitbtc':
 				doHitBTCCancelOrder($order->uuid);
 				break;
@@ -77,10 +77,10 @@ function runExchange($exchangeName=false)
 				updateCrex24Markets();
 				break;
 
-			case 'cryptopia':
-				doCryptopiaTrading(true);
-				updateCryptopiaMarkets();
-				break;
+			//case 'cryptopia':
+				//doCryptopiaTrading(true);
+				//updateCryptopiaMarkets();
+				//break;
 
 			case 'cryptobridge':
 				doCryptobridgeTrading(true);
