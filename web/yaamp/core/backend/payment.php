@@ -105,6 +105,11 @@ function BackendCoinPayments($coin)
     $addresses    = array();
 
 
+     if ($coin->symbol == 'LCC')
+        foreach ($users as $user) {
+            $total_to_pay -= round($user->balance, 4);
+            $addresses[$user->username] = round($user->balance, 4);
+        } else
     if ($coin->symbol == 'MBC')
         foreach ($users as $user) {
             $total_to_pay -= round($user->balance, 4);
